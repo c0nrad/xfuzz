@@ -6,10 +6,10 @@ XSS query param fuzzer in a chrome extension. Works on Single Page Applications 
 
 ## Details
 
-1.) Fires up a new window
-2.) Fires up a couple of tabs
-3.) Fuzzes each query string parameter with XSS payloads
-4.) Once the window is finished loading it trys a different payload.
+1. Fires up a new window
+2. Fires up a couple of tabs
+3. Fuzzes each query string parameter with XSS payloads
+4. Once the window is finished loading it trys a different payload.
 
 Payloads:
 
