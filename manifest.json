@@ -1,0 +1,38 @@
+{
+  "manifest_version": 2,
+
+  "name": "xfuzz",
+
+  "description": "Fuzz query strings for XSS",
+  "version": "0.0.1",
+
+
+  "web_accessible_resources": [
+    "content/injection.js"
+  ],
+
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": ["<all_urls>"],
+      "js": ["content/content.js"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["background/background.js"]
+  },
+
+  "icons": { "128": "icon.png" },
+
+  "permissions": [
+    "webRequestBlocking",
+    "webRequest",
+    "<all_urls>",
+    "tabs"
+  ],
+
+  "browser_action": {
+    "default_popup": "popup/popup.html"
+  }
+}

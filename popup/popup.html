@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/popup/public/lib/bootstrap/dist/css/bootstrap.min.css">
+  </head>
+  <body style="width: 400px" ng-app="xfuzz">
+    <div ng-controller="HomeController" class="container">
+      <h1>xFuzz</h1>
+
+      <div class="form-group">
+        <label> Number Of Tabs </label>
+        <input class="form-control" ng-model="numberOfTabs">
+      </div>
+
+      <div class="form-group">
+        <label> Delay Time </label>
+        <input class="form-control" ng-model="delayTime">
+      </div>
+
+      <div class="form-group">
+        <label>         
+          <input type="checkbox" ng-model="includeCommonQuery">
+          Include Common Query Parameters 
+        </label>
+      </div>
+
+    
+
+      <p class="pull-left" ng-hide="fuzzer.completed"> Total Testcases: <strong>{{testcases.length}}</strong></p>
+
+      <div class="progress" ng-if="fuzzer.completed">
+        <div class="progress-bar" role="progressbar" aria-valuenow="{{fuzzer.completed}}" aria-valuemin="0" aria-valuemax="{{testcases.length}}" style="min-width: 2em; width: {{100 * fuzzer.completed/testcases.length}}%;">
+          {{fuzzer.completed}} / {{testcases.length}}
+        </div>
+      </div>
+
+      <button class="btn btn-primary pull-right" ng-click="fuzz()">Start</button>
+
+
+    </div>
+
+
+    <script src="/popup/public/lib/jquery/dist/jquery.min.js"> </script>
+    <script src="/popup/public/lib/underscore/underscore.js"></script>
+    <script src="/popup/public/lib/angular/angular.js"></script>
+    <script src="/popup/public/lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
